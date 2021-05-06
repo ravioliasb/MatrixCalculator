@@ -47,9 +47,12 @@ Selection Menu:
         vector_angle = VectorOperations.angle(vector, vector2)
         print("Angle: ", round(vector_angle, 2), " radians")
     if vector_selection == "8":
-        vector2 = [int(input("Enter Values for Vector 2: ")) for i in range(size)]
-        cross = VectorOperations.cross_product(vector, vector2)
-        print(cross)
+        if size == 3:
+            vector2 = [int(input("Enter Values for Vector 2: ")) for i in range(size)]
+            cross = VectorOperations.cross_product(vector, vector2)
+            print(cross)
+        else:
+            print("Vectors must be 3D")
 elif choice == "2":
     matrix_selection = input("""
 Selection Menu: 
