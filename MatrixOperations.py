@@ -54,3 +54,10 @@ def inverse(matrix):
 def scalar_multiply(matrix, scalar):
     scaled_matrix = [[component * scalar for component in row] for row in matrix]
     return scaled_matrix
+
+
+def trace(matrix):
+    trace_value = 0
+    for i in range(len(matrix[0])):
+        trace_value += matrix[i][i]
+    return trace_value

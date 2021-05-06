@@ -60,6 +60,7 @@ Selection Menu:
 2) Transpose 
 3) Inverse
 4) Scalar Multiplication
+5) Trace
 """)
     dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
     matrix = [[int(input("Enter Value: ")) for i in range(dimensions)] for j in range(dimensions)]
@@ -77,3 +78,6 @@ Selection Menu:
         scalar = float(input("Please input the scalar:"))
         scaled_matrix = MatrixOperations.scalar_multiply(matrix, scalar)
         print(scaled_matrix)
+    elif matrix_selection == "5":
+        trace = MatrixOperations.trace(matrix)
+        print("Trace: ", trace)
