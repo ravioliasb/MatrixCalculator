@@ -104,14 +104,16 @@ Selection Menu:
         trace = MatrixOperations.trace(matrix)
         print("Trace: ", trace)
     elif matrix_selection == "6":
-        dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
-        matrix1 = [[int(input("Enter Values for Matrix 1: ")) for i in range(dimensions)] for j in range(dimensions)]
-        matrix2 = [[int(input("Enter Values for Matrix 2: ")) for i in range(dimensions)] for j in range(dimensions)]
+        columns = int(input("Enter the number of columns in the matrices:"))
+        rows = int(input("Enter the number of rows in the matrices:"))
+        matrix1 = [[int(input("Enter Values for Matrix 1: ")) for i in range(columns)] for j in range(rows)]
+        matrix2 = [[int(input("Enter Values for Matrix 2: ")) for i in range(columns)] for j in range(rows)]
         sum_matrix = MatrixOperations.add(matrix1, matrix2)
         print(sum_matrix)
     elif matrix_selection == "7":
-        dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
-        matrix1 = [[int(input("Enter Values for Matrix 1: ")) for i in range(dimensions)] for j in range(dimensions)]
-        matrix2 = [[int(input("Enter Values for Matrix 2: ")) for i in range(dimensions)] for j in range(dimensions)]
+        columns = int(input("Enter the number of columns in the matrices:"))
+        rows = int(input("Enter the number of rows in the matrices:"))
+        matrix1 = [[int(input("Enter Values for Matrix 1: ")) for i in range(columns)] for j in range(rows)]
+        matrix2 = [[int(input("Enter Values for Matrix 2: ")) for i in range(columns)] for j in range(rows)]
         diff_matrix = MatrixOperations.sub(matrix1, matrix2)
         print(diff_matrix)
