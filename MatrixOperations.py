@@ -60,3 +60,23 @@ def trace(matrix):
     for i in range(len(matrix[0])):
         trace_value += matrix[i][i]
     return trace_value
+
+
+def add(matrix1, matrix2):
+    sum_matrix = []
+    for i in range(len(matrix1)):
+        row = []
+        for j in range(len(matrix1[0])):
+            row.append(matrix1[i][j] + matrix2[i][j])
+        sum_matrix.append(row)
+    return sum_matrix
+
+
+def sub(matrix1, matrix2):
+    diff_matrix = []
+    for i in range(len(matrix1)):
+        row = []
+        for j in range(len(matrix1[0])):
+            row.append(matrix1[i][j] - matrix2[i][j])
+        diff_matrix.append(row)
+    return diff_matrix

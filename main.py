@@ -72,23 +72,46 @@ Selection Menu:
 3) Inverse
 4) Scalar Multiplication
 5) Trace
+6) Addition
+7) Subtraction
 """)
-    dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
-    matrix = [[int(input("Enter Value: ")) for i in range(dimensions)] for j in range(dimensions)]
+
 
     if matrix_selection == "1":
+        dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
+        matrix = [[int(input("Enter Value: ")) for i in range(dimensions)] for j in range(dimensions)]
         determinant = MatrixOperations.determinant(matrix)
         print("Determinant: ", determinant)
     elif matrix_selection == "2":
+        dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
+        matrix = [[int(input("Enter Value: ")) for i in range(dimensions)] for j in range(dimensions)]
         transpose = MatrixOperations.transpose(matrix)
         print(transpose)
     elif matrix_selection == "3":
+        dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
+        matrix = [[int(input("Enter Value: ")) for i in range(dimensions)] for j in range(dimensions)]
         inverse = MatrixOperations.inverse(matrix)
         print(inverse)
     elif matrix_selection == "4":
+        dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
+        matrix = [[int(input("Enter Value: ")) for i in range(dimensions)] for j in range(dimensions)]
         scalar = float(input("Please input the scalar:"))
         scaled_matrix = MatrixOperations.scalar_multiply(matrix, scalar)
         print(scaled_matrix)
     elif matrix_selection == "5":
+        dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
+        matrix = [[int(input("Enter Value: ")) for i in range(dimensions)] for j in range(dimensions)]
         trace = MatrixOperations.trace(matrix)
         print("Trace: ", trace)
+    elif matrix_selection == "6":
+        dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
+        matrix1 = [[int(input("Enter Values for Matrix 1: ")) for i in range(dimensions)] for j in range(dimensions)]
+        matrix2 = [[int(input("Enter Values for Matrix 2: ")) for i in range(dimensions)] for j in range(dimensions)]
+        sum_matrix = MatrixOperations.add(matrix1, matrix2)
+        print(sum_matrix)
+    elif matrix_selection == "7":
+        dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
+        matrix1 = [[int(input("Enter Values for Matrix 1: ")) for i in range(dimensions)] for j in range(dimensions)]
+        matrix2 = [[int(input("Enter Values for Matrix 2: ")) for i in range(dimensions)] for j in range(dimensions)]
+        diff_matrix = MatrixOperations.sub(matrix1, matrix2)
+        print(diff_matrix)
