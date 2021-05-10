@@ -17,42 +17,53 @@ Selection Menu:
 7) Angle
 8) Cross Product (Only for 3D vectors)
 """)
-    size = int(input("Enter the size of the vector:"))
-    vector = [int(input("Enter Value for Vector 1: ")) for i in range(size)]
+
 
     if vector_selection == "1":
+        size = int(input("Enter the size of the vector:"))
+        vector = [int(input("Enter Value for Vector 1: ")) for i in range(size)]
         norm = VectorOperations.norm(vector)
         print("Norm: ", norm)
     if vector_selection == "2":
+        size = int(input("Enter the size of the vector:"))
+        vector = [int(input("Enter Value for Vector 1: ")) for i in range(size)]
         unit_vector = VectorOperations.unit(vector)
         print(unit_vector)
     if vector_selection == "3":
+        size = int(input("Enter the size of the vector:"))
+        vector = [int(input("Enter Value for Vector 1: ")) for i in range(size)]
         scalar = float(input("Please input scale factor: "))
         scaled_vector = VectorOperations.scalar_multiply(vector, scalar)
         print(scaled_vector)
     if vector_selection == "4":
+        size = int(input("Enter the size of the vector:"))
+        vector = [int(input("Enter Value for Vector 1: ")) for i in range(size)]
         vector2 = [int(input("Enter Value for Vector 2: ")) for i in range(size)]
         vector_sum = VectorOperations.add(vector, vector2)
         print(vector_sum)
     if vector_selection == "5":
+        size = int(input("Enter the size of the vector:"))
+        vector = [int(input("Enter Value for Vector 1: ")) for i in range(size)]
         vector2 = [int(input("Enter Values of Subtrahend Vector: ")) for i in range(size)]
         vector_difference = VectorOperations.subtract(vector, vector2)
         print(vector_difference)
     if vector_selection == "6":
+        size = int(input("Enter the size of the vector:"))
+        vector = [int(input("Enter Value for Vector 1: ")) for i in range(size)]
         vector2 = [int(input("Enter Values for Vector 2: ")) for i in range(size)]
         dot_product = VectorOperations.dot(vector, vector2)
         print("Dot Product: ", dot_product)
     if vector_selection == "7":
+        size = int(input("Enter the size of the vector:"))
+        vector = [int(input("Enter Value for Vector 1: ")) for i in range(size)]
         vector2 = [int(input("Enter Values for Vector 2: ")) for i in range(size)]
         vector_angle = VectorOperations.angle(vector, vector2)
         print("Angle: ", round(vector_angle, 2), " radians")
     if vector_selection == "8":
-        if size == 3:
-            vector2 = [int(input("Enter Values for Vector 2: ")) for i in range(size)]
+            vector = [int(input("Enter Value for Vector 1: ")) for i in range(3)]
+            vector2 = [int(input("Enter Values for Vector 2: ")) for i in range(3)]
             cross = VectorOperations.cross_product(vector, vector2)
             print(cross)
-        else:
-            print("Vectors must be 3D")
 elif choice == "2":
     matrix_selection = input("""
 Selection Menu: 
