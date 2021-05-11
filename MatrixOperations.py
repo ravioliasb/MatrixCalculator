@@ -80,3 +80,15 @@ def sub(matrix1, matrix2):
             row.append(matrix1[i][j] - matrix2[i][j])
         diff_matrix.append(row)
     return diff_matrix
+
+
+def multiply(matrix1, matrix2):
+    product = [[0 for _ in range(len(matrix2[0]))] for _ in range(len(matrix1))]
+    for i in range(len(matrix1)):
+        for j in range(len(matrix2[0])):
+            sum_num = 0
+
+            for k in range(len(matrix1[0])):
+                sum_num += matrix1[i][k] * matrix2[k][j]
+            product[i][j] = sum_num
+    return product

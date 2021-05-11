@@ -74,8 +74,8 @@ Selection Menu:
 5) Trace
 6) Addition
 7) Subtraction
+8) Multiplication
 """)
-
 
     if matrix_selection == "1":
         dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
@@ -117,3 +117,16 @@ Selection Menu:
         matrix2 = [[int(input("Enter Values for Matrix 2: ")) for i in range(columns)] for j in range(rows)]
         diff_matrix = MatrixOperations.sub(matrix1, matrix2)
         print(diff_matrix)
+    elif matrix_selection == "8":
+        columns1 = int(input("Enter the number of columns in the matrices:"))
+        rows1 = int(input("Enter the number of rows in the matrices:"))
+        columns2 = int(input("Enter the number of columns in the matrices:"))
+        rows2 = int(input("Enter the number of rows in the matrices:"))
+        if columns1 != rows2:
+            print("Incompatible Matrices")
+        else:
+            matrix1 = [[int(input("Enter Values for Matrix 1: ")) for i in range(columns1)] for j in range(rows1)]
+            matrix2 = [[int(input("Enter Values for Matrix 2: ")) for i in range(columns2)] for j in range(rows2)]
+            product = MatrixOperations.multiply(matrix1, matrix2)
+            print(product)
+
