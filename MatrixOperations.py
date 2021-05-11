@@ -44,7 +44,7 @@ def inverse(matrix):
                 cofactor_row.append(constant * cofactor_determinant(matrix, i, j))
             cofactor_matrix.append(cofactor_row)
 
-        comatrix = transpose(cofactor"_matrix)
+        comatrix = transpose(cofactor_matrix)
         inverse_matrix = [[component / det for component in row] for row in comatrix]
         return inverse_matrix
     else:
@@ -61,8 +61,4 @@ def trace(matrix):
     for i in range(len(matrix[0])):
         trace_value += matrix[i][i]
     return trace_value
-"""
-Jon was here
-"""
-def hello():
-    print('hello')
+
