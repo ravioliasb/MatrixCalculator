@@ -92,3 +92,8 @@ def multiply(matrix1, matrix2):
                 sum_num += matrix1[i][k] * matrix2[k][j]
             product[i][j] = sum_num
     return product
+
+
+def print_matrix(matrix):
+    for i in matrix:
+        print(*i)
