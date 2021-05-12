@@ -37,15 +37,24 @@ def inverse(matrix):
         dimensions = len(matrix)
         det = determinant(matrix)
         cofactor_matrix = []
-        for i in range(dimensions):
-            cofactor_row = []
-            for j in range(dimensions):
-                constant = -1 if (i % 2) ^ (j % 2) else 1
-                cofactor_row.append(constant * cofactor_determinant(matrix, i, j))
-            cofactor_matrix.append(cofactor_row)
-        comatrix = transpose(cofactor_matrix)
-        inverse_matrix = [[component / det for component in row] for row in comatrix]
-        return inverse_matrix
+        if dimensions > 2:
+            for i in range(dimensions):
+                cofactor_row = []
+                for j in range(dimensions):
+                    constant = -1 if (i % 2) ^ (j % 2) else 1
+                    cofactor_row.append(constant * cofactor_determinant(matrix, i, j))
+                cofactor_matrix.append(cofactor_row)
+            comatrix = transpose(cofactor_matrix)
+            inverse_matrix = [[component / det for component in row] for row in comatrix]
+            return inverse_matrix
+        else:
+            constant = 1 / det
+            inv_matrix = []
+            inv_matrix.append([matrix[1][1], -1*(matrix[0][1])])
+            inv_matrix.append([-1*(matrix[1][0]), matrix[0][0]])
+            final = scalar_multiply(inv_matrix, constant)
+            return final
+
     else:
         print("This matrix does not have an inverse")
 
@@ -120,7 +129,6 @@ def matrix_pow_help(matrix, n, new):
     else:
         new = multiply(new, matrix)
         return matrix_pow_help(matrix, n - 1, new)
-
 
 
 
