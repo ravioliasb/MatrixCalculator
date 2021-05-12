@@ -96,13 +96,13 @@ def multiply(matrix1, matrix2):
 def print_matrix(matrix):
     for i in matrix:
         print(*i)
-        
+
 def identity(matrix):
     identity = [[0 for _ in range(len(matrix))] for _ in range(len(matrix))]
     for i in range(len(matrix)):
         for j in range(len(matrix)):
             if i == j:
-                empty[i][j] = 1
+                identity[i][j] = 1
     return identity
 
 def matrix_pow(matrix, n):
