@@ -96,24 +96,31 @@ def multiply(matrix1, matrix2):
 def print_matrix(matrix):
     for i in matrix:
         print(*i)
+        
+def identity(matrix):
+    identity = [[0 for _ in range(len(matrix))] for _ in range(len(matrix))]
+    for i in range(len(matrix)):
+        for j in range(len(matrix)):
+            if i == j:
+                empty[i][j] = 1
+    return identity
+
 def matrix_pow(matrix, n):
     new = matrix
     return matrix_pow_help(matrix, n, new)
 def matrix_pow_help(matrix, n, new):
     if n == 1:
-        print(matrix)
         return new
+    elif n == 0:
+        return identity(matrix)
     elif n < 0:
         _ = []
         _ = inverse(matrix)
-        print(_)
         return matrix_pow_help(_, -n, _)
     else:
         new = multiply(new, matrix)
-        print(new)
         return matrix_pow_help(matrix, n - 1, new)
-matrix = [[2,2], [4,2]]
-print(inverse(matrix))
+
 
 
 
