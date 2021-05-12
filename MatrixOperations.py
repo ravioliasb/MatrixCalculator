@@ -43,10 +43,6 @@ def inverse(matrix):
                 constant = -1 if (i % 2) ^ (j % 2) else 1
                 cofactor_row.append(constant * cofactor_determinant(matrix, i, j))
             cofactor_matrix.append(cofactor_row)
-<<<<<<< HEAD
-
-=======
->>>>>>> fac51ba2e064e213c47f0dc611f8d1256261aeb0
         comatrix = transpose(cofactor_matrix)
         inverse_matrix = [[component / det for component in row] for row in comatrix]
         return inverse_matrix
@@ -64,9 +60,6 @@ def trace(matrix):
     for i in range(len(matrix[0])):
         trace_value += matrix[i][i]
     return trace_value
-
-<<<<<<< HEAD
-=======
 
 def add(matrix1, matrix2):
     sum_matrix = []
@@ -103,4 +96,26 @@ def multiply(matrix1, matrix2):
 def print_matrix(matrix):
     for i in matrix:
         print(*i)
->>>>>>> fac51ba2e064e213c47f0dc611f8d1256261aeb0
+def matrix_pow(matrix, n):
+    new = matrix
+    return matrix_pow_help(matrix, n, new)
+def matrix_pow_help(matrix, n, new):
+    if n == 1:
+        print(matrix)
+        return new
+    elif n < 0:
+        _ = []
+        _ = inverse(matrix)
+        print(_)
+        return matrix_pow_help(_, -n, _)
+    else:
+        new = multiply(new, matrix)
+        print(new)
+        return matrix_pow_help(matrix, n - 1, new)
+matrix = [[2,2], [4,2]]
+print(inverse(matrix))
+
+
+
+
+
