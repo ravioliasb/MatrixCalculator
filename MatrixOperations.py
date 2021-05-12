@@ -33,7 +33,9 @@ def transpose(matrix):
 
 
 def inverse(matrix):
-    if determinant(matrix) != 0:
+    if len(matrix) != len(matrix[0]):
+        print('The matrix is not square')
+    elif determinant(matrix) != 0:
         dimensions = len(matrix)
         det = determinant(matrix)
         cofactor_matrix = []
@@ -129,7 +131,8 @@ def matrix_pow_help(matrix, n, new):
     else:
         new = multiply(new, matrix)
         return matrix_pow_help(matrix, n - 1, new)
-
+matrix  = [[2,3,4], [5,4,2]]
+inverse(matrix)
 
 
 
