@@ -1,28 +1,37 @@
 def cofactor(matrix, omit_row, omit_column):
-    row = len(matrix)
-    column = len(matrix[0])
-    return [[matrix[row][column] for column in range(column) if column != omit_column]
-            for row in range(row) if row != omit_row]
+    if len(matrix) != len(matrix[0]):
+        raise ValueError("The matrix is not square")
+    else:
+        row = len(matrix)
+        column = len(matrix[0])
+        return [[matrix[row][column] for column in range(column) if column != omit_column]
+                for row in range(row) if row != omit_row]
 
 
 def cofactor_determinant(matrix, omit_row, omit_column):
-    matrix = cofactor(matrix, omit_row, omit_column)
-    return determinant(matrix)
+    if len(matrix) != len(matrix[0]):
+        raise ValueError("The matrix is not square")
+    else:
+        matrix = cofactor(matrix, omit_row, omit_column)
+        return determinant(matrix)
 
 
 def determinant(matrix):
-    dimensions = len(matrix)
-    if dimensions == 2:
-        det = matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1]
-        return det
+    if len(matrix) != len(matrix[0]):
+        raise ValueError("The matrix is not square")
     else:
-        det = 0
-        for i in range(dimensions):
-            constant = matrix[0][i]
-            if i % 2 == 1:
-                constant = constant * -1
-            det += constant * cofactor_determinant(matrix, 0, i)
-    return det
+        dimensions = len(matrix)
+        if dimensions == 2:
+            det = matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1]
+            return det
+        else:
+            det = 0
+            for i in range(dimensions):
+                constant = matrix[0][i]
+                if i % 2 == 1:
+                    constant = constant * -1
+                det += constant * cofactor_determinant(matrix, 0, i)
+        return det
 
 
 def transpose(matrix):
@@ -34,7 +43,7 @@ def transpose(matrix):
 
 def inverse(matrix):
     if len(matrix) != len(matrix[0]):
-        print('The matrix is not square')
+        raise ValueError('The matrix is not square')
     elif determinant(matrix) != 0:
         dimensions = len(matrix)
         det = determinant(matrix)
@@ -58,7 +67,7 @@ def inverse(matrix):
             return final
 
     else:
-        print("This matrix does not have an inverse")
+        raise ValueError("This matrix does not have an inverse")
 
 
 def scalar_multiply(matrix, scalar):
@@ -93,15 +102,18 @@ def sub(matrix1, matrix2):
 
 
 def multiply(matrix1, matrix2):
-    product = [[0 for _ in range(len(matrix2[0]))] for _ in range(len(matrix1))]
-    for i in range(len(matrix1)):
-        for j in range(len(matrix2[0])):
-            sum_num = 0
+    if len(matrix1[0]) != len(matrix2):
+        raise ValueError("The number of columns in the first matrix should be equal to the number of rows in the second")
+    else:
+        product = [[0 for _ in range(len(matrix2[0]))] for _ in range(len(matrix1))]
+        for i in range(len(matrix1)):
+            for j in range(len(matrix2[0])):
+                sum_num = 0
 
-            for k in range(len(matrix1[0])):
-                sum_num += matrix1[i][k] * matrix2[k][j]
-            product[i][j] = sum_num
-    return product
+                for k in range(len(matrix1[0])):
+                    sum_num += matrix1[i][k] * matrix2[k][j]
+                product[i][j] = sum_num
+        return product
 
 
 def print_matrix(matrix):
@@ -109,16 +121,22 @@ def print_matrix(matrix):
         print(*i)
 
 def identity(matrix):
-    identity = [[0 for _ in range(len(matrix))] for _ in range(len(matrix))]
-    for i in range(len(matrix)):
-        for j in range(len(matrix)):
-            if i == j:
-                identity[i][j] = 1
-    return identity
+    if len(matrix) != len(matrix[0]):
+        raise ValueError("The matrix is not square")
+    else:
+        identity = [[0 for _ in range(len(matrix))] for _ in range(len(matrix))]
+        for i in range(len(matrix)):
+            for j in range(len(matrix)):
+                if i == j:
+                    identity[i][j] = 1
+        return identity
 
 def matrix_pow(matrix, n):
-    new = matrix
-    return matrix_pow_help(matrix, n, new)
+    if len(matrix) != len(matrix[0]):
+        raise ValueError('The matrix is not square')
+    else:
+        new = matrix
+        return matrix_pow_help(matrix, n, new)
 def matrix_pow_help(matrix, n, new):
     if n == 1:
         return new
@@ -131,8 +149,7 @@ def matrix_pow_help(matrix, n, new):
     else:
         new = multiply(new, matrix)
         return matrix_pow_help(matrix, n - 1, new)
-matrix  = [[2,3,4], [5,4,2]]
-inverse(matrix)
+
 
 
 
