@@ -75,6 +75,7 @@ Selection Menu:
 6) Addition
 7) Subtraction
 8) Multiplication
+9) Matrix Power
 """)
 
     if matrix_selection == "1":
@@ -129,3 +130,8 @@ Selection Menu:
             matrix2 = [[int(input("Enter Values for Matrix 2: ")) for i in range(columns2)] for j in range(rows2)]
             product = MatrixOperations.multiply(matrix1, matrix2)
             MatrixOperations.print_matrix(product)
+    elif matrix_selection == "9":
+        dimensions = int(input("Enter the dimensions of the SQUARE matrix:"))
+        matrix = [[int(input("Enter Value: ")) for i in range(dimensions)] for j in range(dimensions)]
+        n = input("Enter the power: ")
+        pow_matrix = MatrixOperations.matrix_pow(matrix, n)
