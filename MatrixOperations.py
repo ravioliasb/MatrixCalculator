@@ -81,6 +81,7 @@ def trace(matrix):
         trace_value += matrix[i][i]
     return trace_value
 
+
 def add(matrix1, matrix2):
     sum_matrix = []
     for i in range(len(matrix1)):
@@ -120,16 +121,18 @@ def print_matrix(matrix):
     for i in matrix:
         print(*i)
 
+
 def identity(matrix):
     if len(matrix) != len(matrix[0]):
         raise ValueError("The matrix is not square")
     else:
-        identity = [[0 for _ in range(len(matrix))] for _ in range(len(matrix))]
+        identity_matrix = [[0 for _ in range(len(matrix))] for _ in range(len(matrix))]
         for i in range(len(matrix)):
             for j in range(len(matrix)):
                 if i == j:
-                    identity[i][j] = 1
-        return identity
+                    identity_matrix[i][j] = 1
+        return identity_matrix
+
 
 def matrix_pow(matrix, n):
     if len(matrix) != len(matrix[0]):
@@ -137,6 +140,8 @@ def matrix_pow(matrix, n):
     else:
         new = matrix
         return matrix_pow_help(matrix, n, new)
+
+
 def matrix_pow_help(matrix, n, new):
     if n == 1:
         return new
@@ -149,8 +154,3 @@ def matrix_pow_help(matrix, n, new):
     else:
         new = multiply(new, matrix)
         return matrix_pow_help(matrix, n - 1, new)
-
-
-
-
-
