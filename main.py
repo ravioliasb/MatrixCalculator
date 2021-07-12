@@ -3,7 +3,7 @@ import MatrixOperations
 import VectorOperations
 
 choice = input("""
-This is a Vector and Matrices Calculator. Select from the following:
+This is PyCalc. Select from the following:
 1) Vector Calculator
 2) Matrices Calculator
 3) Additional Features
@@ -209,4 +209,4 @@ elif choice == "3":
         factors = AdditionalOperations.factors(num)
         print("Factors:", factors)
     else:
-        print("Try Again ")
+        print("Try Again")
