@@ -1,3 +1,4 @@
+import AdditionalOperations
 import MatrixOperations
 import VectorOperations
 
@@ -5,6 +6,7 @@ choice = input("""
 This is a Vector and Matrices Calculator. Select from the following:
 1) Vector Calculator
 2) Matrices Calculator
+3) Additional Features
 """)
 if choice == "1":
     vector_selection = input("""
@@ -135,3 +137,76 @@ Selection Menu:
         matrix = [[int(input("Enter Value: ")) for i in range(dimensions)] for j in range(dimensions)]
         n = input("Enter the power: ")
         pow_matrix = MatrixOperations.matrix_pow(matrix, n)
+elif choice == "3":
+    print("Number Theory Calculator")
+    user_input = input("""Choose a Function:
+             1) Modulo
+             2) Greatest Common Divisor 
+             3) Lowest Common Multiple
+             4) Factorial
+             5) Choose
+             6) IsPrime
+             7) NPrimes
+             8) Maximum
+             9) Minimum
+             10) Permutation
+             11) Parity
+             12) Factors
+    """)
+
+    if user_input == "1":
+        dividend = int(input("Input the dividend: "))
+        divisor = int(input("Input the divisor: "))
+        modulo = AdditionalOperations.modulo(dividend, divisor)
+        print("Modulo: ", modulo)
+    elif user_input == "2":
+        num1 = int(input("Input first number: "))
+        num2 = int(input("Input second number: "))
+        GCD = AdditionalOperations.gcd(num1, num2)
+        print("GCD: ", GCD)
+    elif user_input == "3":
+        num1 = int(input("Input first number: "))
+        num2 = int(input("Input second number: "))
+        LCM = AdditionalOperations.lcm(num1, num2)
+        print("LCM: ", LCM)
+    elif user_input == "4":
+        num = int(input("Input number: "))
+        factorial = AdditionalOperations.factorial(num)
+        print("Factorial: ", factorial)
+    elif user_input == "5":
+        n = int(input("Input n: "))
+        r = int(input("Input r: "))
+        choose = AdditionalOperations.choose(n, r)
+        print("nCr: ", choose)
+    elif user_input == "6":
+        num = int(input("Input number: "))
+        prime = AdditionalOperations.is_prime(num)
+        print("Is prime? ", prime)
+    elif user_input == "7":
+        num = int(input("Input the number of Primes: "))
+        AdditionalOperations.n_primes(num)
+    elif user_input == "8":
+        num1 = int(input("Input first number: "))
+        num2 = int(input("Input second number: "))
+        maximum = AdditionalOperations.maximum(num1, num2)
+        print("Max: ", maximum)
+    elif user_input == "9":
+        num1 = int(input("Input first number: "))
+        num2 = int(input("Input second number: "))
+        minimum = AdditionalOperations.minimum(num1, num2)
+        print("Min: ", minimum)
+    elif user_input == "10":
+        n = int(input("Input n: "))
+        r = int(input("Input r: "))
+        permutations = AdditionalOperations.permutation(n, r)
+        print("nPr: ", permutations)
+    elif user_input == "11":
+        num = int(input("Input number: "))
+        parity = AdditionalOperations.parity(num)
+        print("Parity: ", parity)
+    elif user_input == "12":
+        num = int(input("Input number: "))
+        factors = AdditionalOperations.factors(num)
+        print("Factors:", factors)
+    else:
+        print("Try Again")
